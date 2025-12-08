@@ -28,14 +28,12 @@ class RGBPickerScreen extends StatefulWidget {
 }
 
 class _RGBPickerScreenState extends State<RGBPickerScreen> {
-  // Змінні стану для зберігання значень кольорів (0-255)
   double _red = 0.0;
   double _green = 0.0;
   double _blue = 0.0;
 
   @override
   Widget build(BuildContext context) {
-    // Формуємо колір на основі поточного стану
     final Color currentColor = Color.fromRGBO(
       _red.toInt(),
       _green.toInt(),
@@ -52,7 +50,6 @@ class _RGBPickerScreenState extends State<RGBPickerScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            // Відображення кольору
             Container(
               height: 150,
               width: double.infinity,
@@ -67,7 +64,6 @@ class _RGBPickerScreenState extends State<RGBPickerScreen> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    // Контрастний колір тексту (білий або чорний залежно від яскравості фону)
                     color: currentColor.computeLuminance() > 0.5 ? Colors.black : Colors.white,
                   ),
                 ),
@@ -75,7 +71,6 @@ class _RGBPickerScreenState extends State<RGBPickerScreen> {
             ),
             const SizedBox(height: 40),
             
-            // Слайдери
             _buildColorSlider("Red", Colors.red, _red, (value) {
               setState(() => _red = value);
             }),
@@ -91,7 +86,6 @@ class _RGBPickerScreenState extends State<RGBPickerScreen> {
     );
   }
 
-  // Допоміжний віджет для слайдера
   Widget _buildColorSlider(String label, Color color, double value, ValueChanged<double> onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

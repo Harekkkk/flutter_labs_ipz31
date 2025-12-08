@@ -16,10 +16,9 @@ class Calc {
   void runCalc() {
     double x = _from;
     
-    // Додаємо 0.0001 для компенсації похибки float при порівнянні
     while (x <= _to + 0.0001) {
       x = double.parse(x.toStringAsFixed(2));
-      
+
       final y = _calc(x);
       print("x = $x \t y = ${y.toStringAsFixed(4)}");
 
@@ -35,7 +34,6 @@ class Calc {
   }
 
   double _calc(double x) {
-    // Варіант 27: y = x^3 - 15
     return (x * x * x) - 15;
   }
 }

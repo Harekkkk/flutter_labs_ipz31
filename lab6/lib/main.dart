@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// --- 1. Екран авторизації (LoginScreen) ---
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -33,7 +32,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const FlutterLogo(size: 100), // Замість Image.asset для прикладу
+            const FlutterLogo(size: 100),
             const SizedBox(height: 20),
             const TextField(decoration: InputDecoration(labelText: "Login")),
             const SizedBox(height: 10),
@@ -63,7 +62,6 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-// --- 2. Екран реєстрації (SignupScreen) ---
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 
@@ -98,7 +96,6 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-// --- 3. Екран відновлення паролю (ResetPasswordScreen) ---
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
 
@@ -131,7 +128,6 @@ class ResetPasswordScreen extends StatelessWidget {
   }
 }
 
-// Допоміжна функція для діалогів
 void _showDialog(BuildContext context, String message) {
   showDialog(
     context: context,

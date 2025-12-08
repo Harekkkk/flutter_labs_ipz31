@@ -4,7 +4,6 @@ void main() {
   runApp(const MyApp());
 }
 
-// Константи згідно варіанту 27
 const double _size = 75.0;
 const Color _bgColor = Colors.blue;
 const Color _borderColor = Colors.black;
@@ -44,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      // ScrollView потрібен, бо цифра велика (75 * 5 = 375 пікселів висоти + відступи)
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -59,18 +57,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Логіка побудови цифри 6
   List<Widget> _buildSix() {
     return [
-      _buildRowFull(),    // Верхня лінія (XXX)
-      _buildRowLeft(),    // Ліва сторона (X..)
-      _buildRowFull(),    // Середня лінія (XXX)
-      _buildRowSides(),   // Боки знизу (X.X)
-      _buildRowFull(),    // Нижня лінія (XXX)
+      _buildRowFull(),
+      _buildRowLeft(),
+      _buildRowFull(),
+      _buildRowSides(),
+      _buildRowFull(),
     ];
   }
 
-  // Рядок з 3 заповнених пікселів
   Widget _buildRowFull() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -82,7 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Рядок: піксель зліва, далі пусто
   Widget _buildRowLeft() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Рядок: пікселі по боках, посередині пусто
   Widget _buildRowSides() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -106,7 +100,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Побудова самого пікселя (Container)
   Widget _buildDot() {
     return Container(
       width: _size,
@@ -124,7 +117,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Побудова порожнього місця (SizedBox)
   Widget _buildEmpty() {
     return const SizedBox(
       width: _size,

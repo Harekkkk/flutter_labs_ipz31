@@ -12,7 +12,6 @@ void main() {
   );
 }
 
-// --- 1. State Management Class (Provider) ---
 class CornerProvider with ChangeNotifier {
   double _topLeft = 0.0;
   double _topRight = 0.0;
@@ -45,7 +44,6 @@ class CornerProvider with ChangeNotifier {
   }
 }
 
-// --- 2. Main App Widget ---
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -86,13 +84,11 @@ class HomePage extends StatelessWidget {
   }
 }
 
-// --- 3. Custom Widget: Preview Section (Blue Container) ---
 class PreviewSection extends StatelessWidget {
   const PreviewSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Watch for changes in the provider
     final state = context.watch<CornerProvider>();
 
     return Container(
@@ -117,14 +113,11 @@ class PreviewSection extends StatelessWidget {
   }
 }
 
-// --- 4. Custom Widget: Sliders Section ---
 class ConfigurationSection extends StatelessWidget {
   const ConfigurationSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // We use read here for callbacks, but watch inside Sliders if we wanted them to reflect external changes.
-    // However, context.watch is cleaner for simple UI rebuilds.
     final state = context.watch<CornerProvider>();
 
     return Column(
@@ -145,7 +138,7 @@ class ConfigurationSection extends StatelessWidget {
         Slider(
           value: value,
           min: 0,
-          max: 75, // Max radius is half of size (150/2)
+          max: 75,
           onChanged: onChanged,
         ),
         const SizedBox(height: 10),

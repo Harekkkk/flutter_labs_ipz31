@@ -31,14 +31,12 @@ class NativeCameraScreen extends StatefulWidget {
 }
 
 class _NativeCameraScreenState extends State<NativeCameraScreen> {
-  // Канал для спілкування з Kotlin кодом
   static const platform = MethodChannel('com.example.lab14/native');
   
   String _nativeTime = 'Unknown time';
   File? _image;
   final ImagePicker _picker = ImagePicker();
 
-  // Функція виклику нативного коду
   Future<void> _getNativeTime() async {
     String time;
     try {
@@ -53,7 +51,6 @@ class _NativeCameraScreenState extends State<NativeCameraScreen> {
     });
   }
 
-  // Функція виклику камери
   Future<void> _takePhoto() async {
     try {
       final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
@@ -78,7 +75,6 @@ class _NativeCameraScreenState extends State<NativeCameraScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // --- Блок 1: Нативний час ---
             Text(
               _nativeTime,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -92,7 +88,6 @@ class _NativeCameraScreenState extends State<NativeCameraScreen> {
             
             const Divider(height: 50, thickness: 2),
 
-            // --- Блок 2: Камера ---
             Container(
               height: 300,
               width: 300,

@@ -23,18 +23,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Міксин для валідації (щоб не дублювати код перевірок)
 mixin InputValidationMixin {
   bool isPasswordValid(String password) => password.length >= 7;
 
   bool isEmailValid(String email) {
-    // Простий Regex для перевірки email
-    RegExp regex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    RegExp regex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}\$');
     return regex.hasMatch(email);
   }
 }
 
-// --- 1. Екран авторизації ---
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -58,8 +55,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
             children: [
               const Icon(Icons.security, size: 60, color: Colors.indigo),
               const SizedBox(height: 20),
-              
-              // Email Field
+
               TextFormField(
                 decoration: const InputDecoration(labelText: "Email"),
                 validator: (value) {
@@ -70,7 +66,6 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
               ),
               const SizedBox(height: 15),
 
-              // Password Field
               TextFormField(
                 decoration: const InputDecoration(labelText: "Password"),
                 obscureText: true,
@@ -92,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
                 },
                 child: const Text("Login"),
               ),
-              
+
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -115,7 +110,6 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
   }
 }
 
-// --- 2. Екран реєстрації ---
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -144,7 +138,7 @@ class _SignupScreenState extends State<SignupScreen> with InputValidationMixin {
                 },
               ),
               const SizedBox(height: 15),
-              
+
               TextFormField(
                 decoration: const InputDecoration(labelText: "Email (Login)"),
                 validator: (value) {
@@ -188,7 +182,6 @@ class _SignupScreenState extends State<SignupScreen> with InputValidationMixin {
   }
 }
 
-// --- 3. Екран відновлення паролю ---
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
 
@@ -212,7 +205,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> with InputVal
             children: [
               const Text("Enter your email to receive a reset link."),
               const SizedBox(height: 20),
-              
+
               TextFormField(
                 decoration: const InputDecoration(labelText: "Email"),
                 validator: (value) {

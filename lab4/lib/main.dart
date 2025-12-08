@@ -12,11 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Lab 4 Variant 27',
       theme: ThemeData(
-        // Варіант 27: seedColor is Colors.blue
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      // Завдання: <Group>: <Name>'s first Flutter App
       home: const MyHomePage(title: 'IPZ-31: Artem\'s first Flutter App'),
     );
   }
@@ -36,7 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // Варіант 27: Крок лічильника = 6
       _counter += 6;
     });
   }
@@ -65,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        // Варіант 27: Іконка electric_car
+        
         child: const Icon(Icons.electric_car),
       ),
     );
